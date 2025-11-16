@@ -1,0 +1,22 @@
+[user]
+    name = Michael Rowsey
+    email = mike@rowsey.org
+
+[color]
+    ui = auto
+
+[core]
+    editor = vim
+
+[alias]
+    co = checkout
+    br = branch
+    st = status -sb
+    ci = commit
+    lg = log --oneline --graph --decorate --all
+
+[push]
+    default = simple
+
+[init]
+    defaultBranch = main
