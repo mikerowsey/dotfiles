@@ -4,8 +4,8 @@
 ![Linux](https://img.shields.io/badge/OS-Linux-blue)
 ![Shell: Bash](https://img.shields.io/badge/shell-bash-4EAA25?logo=gnu-bash&logoColor=white)
 ![Editor: Vim](https://img.shields.io/badge/editor-vim-019733?logo=vim)
-![Last Commit](https://img.shields.io/github/last-commit/mikerowsey/dotfiles)
-![Repo Size](https://img.shields.io/github/repo-size/mikerowsey/dotfiles)
+![Last Commit](https://img.shields.io/github/last-commit/mikerowsey/dotfiles-basic)
+![Repo Size](https://img.shields.io/github/repo-size/mikerowsey/dotfiles-basic)
 
 A minimal, portable set of **dotfiles** designed for clean Linux servers, AWS EC2 instances, WSL, and any environment where you want an immediate quality-of-life upgrade without heavy dependencies.
 
@@ -60,8 +60,8 @@ A `bootstrap.sh` script safely installs everything by backing up existing dotfil
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/mikerowsey/dotfiles.git
-cd dotfiles
+git clone https://github.com/mikerowsey/dotfiles-basic.git
+cd dotfiles-basic
 chmod +x bootstrap.sh
 ./bootstrap.sh
 source ~/.bashrc
