@@ -73,7 +73,7 @@ if command -v fzf >/dev/null 2>&1; then
   # Fedora
   if [[ -r /usr/share/fzf/shell/key-bindings.zsh ]]; then
     source /usr/share/fzf/shell/key-bindings.zsh
-    source /usr/share/fzf/shell/completion.zsh
+    # source /usr/share/fzf/shell/completion.zsh
 
   # macOS (Homebrew)
   elif [[ -r "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]]; then
