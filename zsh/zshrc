@@ -1,0 +1,33 @@
+
+. "$HOME/.local/bin/env"
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+HISTSIZE=5000
+SAVEHIST=5000
+HISTFILE=~/.zsh_history
+setopt HIST_IGNORE_DUPS
+setopt SHARE_HISTORY
+
+autoload -Uz compinit
+compinit
+
+autoload -Uz colors && colors
+PROMPT='%F{cyan}%n@%m%f %F{yellow}%~%f %# '
+
+alias ls='eza --icons'
+alias ll='eza -lh --icons'
+alias la='eza -lha --icons'
+alias vim='nvim'
+
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
