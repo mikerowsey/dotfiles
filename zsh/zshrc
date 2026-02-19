@@ -1,4 +1,13 @@
-export PATH="$HOME/.cargo/bin:$PATH"
+# PATH (deduped, includes uv)
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  /usr/local/bin
+  /usr/bin
+  $path
+)
+export PATH
 
 export EDITOR=nvim
 export VISUAL=nvim

@@ -12,3 +12,7 @@ style_root = "red bold"
 ssh_only = false
 format = "@[$hostname]($style) "
 style = "bright-white"
+
+[python]
+python_binary = [".venv/bin/python", "python3", "python"]
+
