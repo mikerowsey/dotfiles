@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DEVICE="intel_backlight"
+
+cur=$(brightnessctl -d "$DEVICE" g)
+max=$(brightnessctl -d "$DEVICE" m)
+
+pct=$(( cur * 100 / max ))
+
+echo "  ${pct}%"

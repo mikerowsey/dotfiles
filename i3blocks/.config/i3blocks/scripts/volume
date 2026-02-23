@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+line="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
+vol="$(awk '{print int($2*100)}' <<<"$line")"
+
+if grep -q "MUTED" <<<"$line"; then
+  echo ""
+else
+  echo "  ${vol}%"
+fi

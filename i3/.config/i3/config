@@ -25,6 +25,9 @@ set $ws10 "10"
 gaps inner 12
 gaps outer 6
 smart_gaps on
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
 
 # ==========================================================================
 # Autostart
@@ -35,6 +38,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec_always --no-startup-id dunst
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id feh --bg-fill ~/images/wallpaper.jpg
+exec --no-startup-id flameshot
 
 # ==========================================================================
 # Workspaces
@@ -119,16 +124,26 @@ bindsym $mod+Return exec alacritty
 bindsym Mod1 + space exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+c reload
 
+bindsym Print exec flameshot full
+bindsym $mod+Shift+s exec flameshot gui
+
 # ==========================================================================
 # Keybindings: Audio & Brightness
 # ==========================================================================
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5
-bindsym XF86AudioMute exec --no-startup-id pamixer -t
-bindsym XF86AudioMicMute exec --no-startup-id pamixer --default-source -t
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+# Microphone
+bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && pkill -SIGRTMIN+12 i3blocks
+
+# Volume (PipeWire)
+bindsym XF86AudioRaiseVolume exec --no-startup-id sh -c \
+  'wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+ && pkill -SIGRTMIN+11 i3blocks'
+bindsym XF86AudioLowerVolume exec --no-startup-id sh -c \
+  'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && pkill -SIGRTMIN+11 i3blocks'
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && pkill -SIGRTMIN+11 i3blocks
+
+# Brightness (intel_backlight)
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -d intel_backlight set +5% && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backlight set 5%- && pkill -SIGRTMIN+10 i3blocks
 
 # ==========================================================================
 # Keybindings: System
@@ -141,9 +156,18 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Bar
 # ==========================================================================
 
+# bar {
+#         status_command i3status
+# }
+
 bar {
-        status_command i3status
+    status_command i3blocks -c ~/.config/i3blocks/config
+    position top
+    font pango:JetBrainsMono Nerd Font 12
+    tray_output primary
 }
+
+
 
 # ==========================================================================
 # Includes / Misc

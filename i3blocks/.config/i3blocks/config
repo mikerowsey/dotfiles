@@ -1,0 +1,35 @@
+# i3blocks config
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+separator=true
+separator_block_width=12
+markup=pango
+
+# --- Fast, signal-driven blocks (instant updates) ---
+
+[brightness]
+interval=once
+signal=10
+min_width=8
+align=left
+
+[volume]
+interval=once
+signal=11
+min_width=8
+align=left
+
+[mic]
+interval=once
+signal=12
+min_width=8
+align=left
+
+# --- Periodic blocks ---
+
+[battery]
+command=~/.config/i3blocks/scripts/battery
+interval=30
+
+[time]
+command=date '+%a %b %d %H:%M'
+interval=5
