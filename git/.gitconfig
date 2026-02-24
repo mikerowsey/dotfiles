@@ -1,0 +1,62 @@
+[user]
+    name = Michael Rowsey
+    email = michael@rowsey.org
+
+[core]
+    editor = vim
+    pager = less -FRX
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+    filemode = true
+
+[init]
+    defaultBranch = main
+
+[fetch]
+    prune = true
+
+[pull]
+    rebase = false
+    ff = only
+
+[push]
+    default = simple
+    autoSetupRemote = true
+
+[rebase]
+    autoStash = true
+
+[merge]
+    ff = only
+
+[diff]
+    colorMoved = default
+
+[color]
+    ui = auto
+
+[alias]
+    st = status -sb
+    co = checkout
+    br = branch
+    ci = commit
+    amend = commit --amend --no-edit
+    lg = log --oneline --graph --decorate --all
+    last = log -1 HEAD
+    unstage = restore --staged
+
+# Rewrite common HTTPS remotes to SSH (prevents auth prompts/hangs in scripts)
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+
+[url "git@gitlab.com:"]
+    insteadOf = https://gitlab.com/
+[url "ssh://git@gitlab.com/"]
+    insteadOf = https://gitlab.com/
+
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+[url "ssh://git@bitbucket.org/"]
+    insteadOf = https://bitbucket.org/
