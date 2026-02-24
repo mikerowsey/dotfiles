@@ -1,0 +1,10 @@
+# ---------- Aliases ----------
+alias ls='eza --icons'
+alias ll='eza -lh --icons'
+alias la='eza -lha --icons'
+alias vim='nvim'
+alias v='nvim'
+alias gs='git status'
+alias edz='nvim ~/.zshrc'
+alias rlz='source ~/.zshrc'
+alias edwm='nvim ~/.config/i3/config'
