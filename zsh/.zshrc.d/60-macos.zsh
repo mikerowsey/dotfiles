@@ -6,3 +6,5 @@ alias o='open'
 # Clipboard helpers
 alias clipcopy='pbcopy'
 alias clippaste='pbpaste'
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"

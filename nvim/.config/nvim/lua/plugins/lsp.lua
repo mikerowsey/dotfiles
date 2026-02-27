@@ -1,22 +1,26 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
-      require("nvim-treesitter.configs").setup({
-        highlight = { enable = true },
-        indent = { enable = true },
-        ensure_installed = {
-          "lua", "vim", "vimdoc",
-          "c", "cpp",
-          "python",
-          "rust",
-          "bash",
-          "json", "yaml", "toml",
-          "markdown", "markdown_inline",
-        },
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      vim.lsp.config("lua_ls", {
+        capabilities = capabilities,
       })
+
+      vim.lsp.config("clangd", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+      })
+
+      vim.lsp.enable({ "lua_ls", "clangd", "pyright" })
     end,
   },
 }
-
