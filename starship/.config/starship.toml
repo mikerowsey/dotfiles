@@ -1,18 +1,39 @@
-# Keep the prompt clean
-add_newline = false
+# Keep prompt short
+format = "$directory$git_branch$git_status$character"
 
-# Show user@machine always
-[username]
-show_always = true
-format = "[$user]($style)"
-style_user = "bright-white"
-style_root = "red bold"
+[directory]
+truncation_length = 2
+truncate_to_repo = true
+style = "bold"
+read_only = ""
 
-[hostname]
-ssh_only = false
-format = "@[$hostname]($style) "
-style = "bright-white"
+[git_branch]
+format = " [$branch]($style)"
+style = "bright-black"
 
-[python]
-python_binary = [".venv/bin/python", "python3", "python"]
+[git_status]
+format = " [$all_status$ahead_behind]($style)"
+style = "bright-black"
+conflicted = "!"
+modified = "!"
+staged = "+"
+untracked = "?"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+renamed = "»"
+deleted = "✘"
 
+# Disable cloud modules
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[azure]
+disabled = true
+
+# Disable timing noise
+[cmd_duration]
+disabled = true

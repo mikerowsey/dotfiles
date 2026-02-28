@@ -41,7 +41,7 @@ map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 -- Formatting
 -- ======================
 
-map("n", "<leader>f", function()
+map("n", "<leader>cf", function()
 	require("conform").format({ timeout_ms = 3000, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
