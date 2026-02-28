@@ -31,3 +31,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.diagnostic.config({
+  virtual_text = false,        -- keep the screen clean; use <leader>e instead
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "if_many",
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+})
