@@ -13,11 +13,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local sys = vim.uv.os_uname().sysname
-local lockfile = vim.fn.stdpath("config") .. "lazy-lock." .. sys .. ".json"
-
 require("lazy").setup("plugins", {
-    lockfile = lockfile,
     change_detection = { notify = false },
 })
 
