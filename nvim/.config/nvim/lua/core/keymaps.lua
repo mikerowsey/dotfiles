@@ -42,7 +42,7 @@ map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 -- ======================
 
 map("n", "<leader>f", function()
-    vim.lsp.buf.format({ async = true })
+	require("conform").format({ timeout_ms = 3000, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
 -- ======================
