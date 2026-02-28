@@ -25,20 +25,20 @@ vim.opt.timeoutlen = 400
 vim.opt.clipboard = "unnamedplus"
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp", "lua", "python", "rust", "bash", "json", "yaml", "toml", "markdown" },
-  callback = function()
-    pcall(vim.treesitter.start)
-  end,
+    pattern = { "c", "cpp", "lua", "python", "rust", "bash", "json", "yaml", "toml", "markdown" },
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
 })
 
 vim.diagnostic.config({
-  virtual_text = false,        -- keep the screen clean; use <leader>e instead
-  severity_sort = true,
-  float = {
-    border = "rounded",
-    source = "if_many",
-  },
-  signs = true,
-  underline = true,
-  update_in_insert = false,
+    virtual_text = false, -- keep the screen clean; use <leader>e instead
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = "if_many",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
 })
