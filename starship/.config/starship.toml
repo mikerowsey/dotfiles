@@ -1,19 +1,18 @@
-# Keep prompt short
 format = "$directory$git_branch$git_status$character"
 
 [directory]
 truncation_length = 2
 truncate_to_repo = true
-style = "bold"
+style = "bold blue"
 read_only = ""
 
 [git_branch]
 format = " [$branch]($style)"
-style = "bright-black"
+style = "green"
 
 [git_status]
 format = " [$all_status$ahead_behind]($style)"
-style = "bright-black"
+style = "yellow"
 conflicted = "!"
 modified = "!"
 staged = "+"
@@ -21,19 +20,10 @@ untracked = "?"
 ahead = "⇡"
 behind = "⇣"
 diverged = "⇕"
-renamed = "»"
 deleted = "✘"
 
-# Disable cloud modules
 [aws]
 disabled = true
 
-[gcloud]
-disabled = true
-
-[azure]
-disabled = true
-
-# Disable timing noise
 [cmd_duration]
 disabled = true
