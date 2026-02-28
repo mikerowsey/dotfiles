@@ -53,3 +53,30 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 map("n", "<leader>fa", "<cmd>Telescope find_files hidden=true<cr>", { desc = "Find all files" })
 map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
+
+-- ======================
+-- Gitsigns
+-- ======================
+
+-- GitSigns
+map("n", "]h", function()
+	require("gitsigns").next_hunk()
+end, { desc = "Next hunk" })
+map("n", "[h", function()
+	require("gitsigns").prev_hunk()
+end, { desc = "Prev hunk" })
+map("n", "<leader>gp", function()
+	require("gitsigns").preview_hunk()
+end, { desc = "Preview hunk" })
+map("n", "<leader>gs", function()
+	require("gitsigns").stage_hunk()
+end, { desc = "Stage hunk" })
+map("n", "<leader>gu", function()
+	require("gitsigns").undo_stage_hunk()
+end, { desc = "Unstage hunk" })
+map("n", "<leader>gr", function()
+	require("gitsigns").reset_hunk()
+end, { desc = "Reset hunk" })
+map("n", "<leader>gb", function()
+	require("gitsigns").toggle_current_line_blame()
+end, { desc = "Toggle blame" })
