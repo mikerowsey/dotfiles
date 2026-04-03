@@ -8,3 +8,5 @@ alias gs='git status'
 alias edz='nvim ~/.zshrc'
 alias rlz='source ~/.zshrc'
 alias edwm='nvim ~/.config/i3/config'
+alias llvm-clang="/opt/homebrew/opt/llvm/bin/clang"
+alias llvm-clang++="/opt/homebrew/opt/llvm/bin/clang++"
