@@ -2,14 +2,10 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		cmd = { "TSInstall", "TSUpdate", "TSUpdateSync" },
 		event = { "BufReadPost", "BufNewFile" },
 		config = function()
-			local ok, configs = pcall(require, "nvim-treesitter.configs")
-			if not ok then
-				return
-			end
-
-			configs.setup({
+			require("nvim-treesitter").setup({
 				ensure_installed = {
 					"c",
 					"cpp",
@@ -22,6 +18,11 @@ return {
 					"rust",
 					"markdown",
 					"markdown_inline",
+					"javascript",
+					"typescript",
+					"tsx",
+					"html",
+					"css",
 				},
 				auto_install = true,
 				highlight = {

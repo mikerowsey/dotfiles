@@ -3,7 +3,9 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     config = function()
-      require("which-key").setup({
+      local wk = require("which-key")
+
+      wk.setup({
         plugins = {
           presets = {
             operators = false,
@@ -13,14 +15,21 @@ return {
             nav = false,
           },
         },
-        replace = {
-          ["<leader>"] = "SPC",
-        },
         icons = {
-          breadcrumb = "»",
           separator = "➜",
           group = "+",
         },
+      })
+
+      wk.add({
+        { "<leader>S", group = "Session" },
+        { "<leader>c", group = "Code" },
+        { "<leader>d", group = "Diagnostics" },
+        { "<leader>f", group = "Find" },
+        { "<leader>g", group = "Git" },
+        { "<leader>u", group = "UI/Toggles" },
+        { "<leader>w", group = "Workspace" },
+        { "<leader>x", group = "Trouble" },
       })
     end,
   },
