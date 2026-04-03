@@ -1,19 +1,37 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,    -- must not be lazy-loaded
-        build = ":TSUpdate", -- updates parsers when plugin updates
-        config = function()
-            require("nvim-treesitter").setup({
-                install_dir = vim.fn.stdpath("data") .. "/site",
-            })
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
+		config = function()
+			local ok, configs = pcall(require, "nvim-treesitter.configs")
+			if not ok then
+				return
+			end
 
-            -- Automatically start Treesitter for supported filetypes
-            vim.api.nvim_create_autocmd("FileType", {
-                callback = function()
-                    pcall(vim.treesitter.start)
-                end,
-            })
-        end,
-    },
+			configs.setup({
+				ensure_installed = {
+					"c",
+					"cpp",
+					"lua",
+					"python",
+					"bash",
+					"json",
+					"yaml",
+					"toml",
+					"rust",
+					"markdown",
+					"markdown_inline",
+				},
+				auto_install = true,
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+				},
+			})
+		end,
+	},
 }
+
