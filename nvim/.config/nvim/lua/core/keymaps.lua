@@ -87,6 +87,15 @@ end, { desc = "Format buffer" })
 map("n", "<leader>ci", "<cmd>ConformInfo<cr>", { desc = "Conform info" })
 
 -- ======================
+-- Buffers
+-- ======================
+
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "[b", "<cmd>bprev<cr>", { desc = "Prev buffer" })
+map("n", "<leader>bd", "<cmd>bp | bd #<cr>", { desc = "Delete buffer" })
+map("n", "<leader>bo", "<cmd>%bd | e# | bd #<cr>", { desc = "Delete other buffers" })
+
+-- ======================
 -- Telescope
 -- ======================
 
