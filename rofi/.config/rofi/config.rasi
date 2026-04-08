@@ -1,6 +1,0 @@
-configuration {
-    modi: "drun,run";
-    show-icons: true;
-    font: "Noto Sans 11";
-    drun-display-format: "{name}";
-}

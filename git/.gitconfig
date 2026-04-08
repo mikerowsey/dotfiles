@@ -3,7 +3,7 @@
     email = michael@rowsey.org
 
 [core]
-    editor = vim
+    editor = nvim
     pager = less -FRX
     excludesfile = ~/.gitignore_global
     autocrlf = input

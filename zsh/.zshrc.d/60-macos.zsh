@@ -14,3 +14,5 @@ alias clippaste='pbpaste'
 # export AR="/opt/homebrew/opt/llvm/bin/llvm-ar"
 # export NM="/opt/homebrew/opt/llvm/bin/llvm-nm"
 # export RANLIB="/opt/homebrew/opt/llvm/bin/llvm-ranlib"
+alias llvm-clang="/opt/homebrew/opt/llvm/bin/clang"
+alias llvm-clang++="/opt/homebrew/opt/llvm/bin/clang++"
