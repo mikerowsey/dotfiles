@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/match.schema.json
+
+matches:
+  - trigger: ":sig"
+    replace: |
+      Best regards,
+
+      Michael Rowsey
+      Operations Manager
+      Tokistar Lighting, Inc.
+      T: 714-772-7005 | W: www.tokistar.com
+
+  - trigger: ":ogem"
+    replace: |
+      ========== ORIGINAL EMAIL ==========
+
+  - trigger: ":init-ord"
+    replace: |
+      Due to the custom nature of our products, all initial orders are on a credit card or cash in advance terms.
+
+  - trigger: ":recd-ord"
+    replace: |
+      This order has been received and entered into production with an estimated ship date of 
+
+
+
