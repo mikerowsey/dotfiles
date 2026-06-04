@@ -1,52 +1,124 @@
-# ~/.zshrc — macOS
+# ~/.zshrc
 [[ -o interactive ]] || return
 
-# ---------- Homebrew ----------
-if command -v brew >/dev/null 2>&1; then
-  eval "$(brew shellenv)"
-fi
+# ============================================================================
+# Environment
+# ============================================================================
 
-# ---------- PATH ----------
-typeset -U path PATH
-path=(
-  "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
-  /usr/local/bin
-  $path
-)
-export PATH
-
-# ---------- Editors ----------
 export EDITOR=nvim
 export VISUAL=nvim
+export PAGER=less
 
-# ---------- History / options ----------
-HISTSIZE=5000
-SAVEHIST=5000
-HISTFILE=~/.zsh_history
+# Silence Apple bash warning if we occasionally invoke bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# ============================================================================
+# PATH
+# ============================================================================
+
+typeset -U path
+
+path=(
+    /opt/homebrew/bin
+    /opt/homebrew/sbin
+    $HOME/.local/bin
+    $HOME/.cargo/bin
+    $HOME/bin
+    $path
+)
+
+export PATH
+
+# ============================================================================
+# History
+# ============================================================================
+
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
-setopt EXTENDED_GLOB
 
-# ---------- Completion ----------
+# ============================================================================
+# Shell Behavior
+# ============================================================================
+
+setopt AUTO_CD
+setopt EXTENDED_GLOB
+setopt INTERACTIVE_COMMENTS
+
+# ============================================================================
+# Completion
+# ============================================================================
+
 autoload -Uz compinit
 compinit -C
 
-# ---------- Aliases ----------
-alias ls='eza --icons'
-alias ll='eza -lh --icons'
-alias la='eza -lha --icons'
+# ============================================================================
+# Aliases
+# ============================================================================
+
+# eza if installed
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza --icons'
+    alias ll='eza -lh --icons'
+    alias la='eza -lha --icons'
+else
+    alias ll='ls -lah'
+    alias la='ls -A'
+fi
+
 alias vim='nvim'
 alias v='nvim'
+
 alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+
+alias py='python3'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
 alias rlz='source ~/.zshrc'
 
+# ============================================================================
+# Functions
+# ============================================================================
 
-# ---------- Plugins ----------
-source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
 
-# zsh-syntax-highlighting (MUST be last among plugins)
-source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+largest() {
+    du -sh ./* 2>/dev/null | sort -hr | head -20
+}
 
-# ---------- Prompt ----------
-eval "$(starship init zsh)"
+pathshow() {
+    printf '%s\n' "${path[@]}"
+}
+
+# ============================================================================
+# Plugins
+# ============================================================================
+
+if brew --prefix zsh-autosuggestions >/dev/null 2>&1; then
+    source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
+if brew --prefix zsh-syntax-highlighting >/dev/null 2>&1; then
+    source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# ============================================================================
+# Prompt
+# ============================================================================
+
+if command -v starship >/dev/null 2>&1; then
+    eval "$(starship init zsh)"
+fi
