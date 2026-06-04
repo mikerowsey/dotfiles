@@ -1,0 +1,15 @@
+vim.g.mapleader = " "
+local map = vim.keymap.set
+map("n", "<leader>w", "<cmd>w<CR>", { desc = "Write file" })
+map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
+map("n", "<leader>h", "<cmd>nohlsearch<CR>", { desc = "Clear search" })
+map("n", "<leader>e", "<cmd>Ex<CR>", { desc = "Explorer" })
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+local builtin = require("telescope.builtin")
+map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+map("n", "<leader>fg", builtin.live_grep, { desc = "Live grep" })
+map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
+map("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
