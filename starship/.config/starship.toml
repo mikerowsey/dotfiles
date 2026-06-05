@@ -80,6 +80,8 @@ symbol = " "
 
 [hostname]
 ssh_symbol = " "
+ssh_only = false
+format = "[@$hostname]($style) "
 
 [java]
 symbol = " "
@@ -197,6 +199,10 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[username]
+show_always = true
+format = "[$user]($style)"
 
 [xmake]
 symbol = " "

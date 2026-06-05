@@ -1,17 +1,20 @@
-# OS
+# macOS
 .DS_Store
-Thumbs.db
 
 # Editors
-*.swp
-*.swo
-*~
 .vscode/
 .idea/
 
+# Vim / Neovim
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
 # Logs
 *.log
-
-# Environment
-.env
-.env.*

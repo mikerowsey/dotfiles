@@ -22,6 +22,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.clipboard = "unnamedplus"
 -- Keymaps
 local map = vim.keymap.set
 

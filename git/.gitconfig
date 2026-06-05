@@ -1,6 +1,6 @@
 [user]
     name = Michael Rowsey
-    email = michael@rowsey.org
+    email = mike@rowsey.com
 
 [core]
     editor = nvim
@@ -16,7 +16,6 @@
     prune = true
 
 [pull]
-    rebase = false
     ff = only
 
 [push]
@@ -36,8 +35,10 @@
     ui = auto
 
 [alias]
+    s = status -sb
     st = status -sb
-    co = checkout
+    sw = switch
+    co = switch
     br = branch
     ci = commit
     amend = commit --amend --no-edit
@@ -45,18 +46,11 @@
     last = log -1 HEAD
     unstage = restore --staged
 
-# Rewrite common HTTPS remotes to SSH (prevents auth prompts/hangs in scripts)
 [url "git@github.com:"]
-    insteadOf = https://github.com/
-[url "ssh://git@github.com/"]
     insteadOf = https://github.com/
 
 [url "git@gitlab.com:"]
     insteadOf = https://gitlab.com/
-[url "ssh://git@gitlab.com/"]
-    insteadOf = https://gitlab.com/
 
 [url "git@bitbucket.org:"]
-    insteadOf = https://bitbucket.org/
-[url "ssh://git@bitbucket.org/"]
     insteadOf = https://bitbucket.org/
