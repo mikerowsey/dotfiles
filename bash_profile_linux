@@ -1,0 +1,9 @@
+# User binaries
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Load bashrc
+
+if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi
