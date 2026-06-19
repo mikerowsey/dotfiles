@@ -28,11 +28,6 @@ endif
 " Safely load the clean habamax colorscheme
 colorscheme habamax
 
-" Force Vim to inherit your transparent terminal background styling
-highlight Normal ctermbg=none guibg=none
-highlight LineNr ctermbg=none guibg=none
-highlight NonText ctermbg=none guibg=none
-
 " --- 6. DUAL-OS CLIPBOARD INTEGRATION ---
 if has("mac") || has("macunix")
     set clipboard=unnamed
