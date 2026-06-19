@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# Configuration directories
-DOTFILES_DIR="$HOME/.dotfiles"
-CONFIG_SRC_DIR="$DOTFILES_DIR/config" # Your custom nested dotfiles folder
+# Dynamically find the absolute path of the directory containing this script
+REPO_ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CONFIG_SRC_DIR="$REPO_ROOT_DIR/config" # Points to the /config folder inside your repo
 OS_TYPE=$(uname)
 
-# Define universal files (Note: names match exactly what is in your repo)
+# Define universal files
 UNIVERSAL_FILES=(".vimrc" ".tmux.conf" ".gitconfig" ".gitignore_global")
 
 # Define OS-specific shell configuration files
@@ -69,7 +69,7 @@ case "$1" in
         echo "=== Backing up live home dotfiles to Repo ($OS_NAME) ==="
         echo "Source: $HOME/ -> Destination: $CONFIG_SRC_DIR"
 
-        # Ensure the config target folder exists in your repo
+        # Ensure the target directory exists inside the repo structure
         mkdir -p "$CONFIG_SRC_DIR"
 
         # Backup universal configurations
