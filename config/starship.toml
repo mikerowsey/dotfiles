@@ -1,0 +1,40 @@
+"$schema" = 'https://starship.rs'
+
+# Single-line format string
+format = """$username$hostname $directory $git_branch$git_status$character"""
+
+# Username settings
+[username]
+style_user = "bold blue"
+style_root = "bold red"
+show_always = true
+format = "[$user]($style)"
+
+# Hostname settings (appended directly to username)
+[hostname]
+ssh_only = false
+style = "bold yellow"
+format = "[@$hostname]($style)"
+
+# Directory settings
+[directory]
+style = "bold cyan"
+truncation_length = 3
+truncation_symbol = "…"
+format = "[$path]($style) "
+
+# Git branch settings
+[git_branch]
+style = "bold purple"
+format = "on [$branch]($style) "
+
+# Git status settings
+[git_status]
+style = "bold red"
+format = '([$all_status$ahead_behind]($style) )'
+
+# Prompt symbol
+[character]
+success_symbol = "[❯ ](bold green)"
+error_symbol = "[❯ ](bold red)"
+
