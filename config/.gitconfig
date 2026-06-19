@@ -1,9 +1,5 @@
-[user]
-    name = Michael Rowsey
-    email = mike@rowsey.com
-
 [core]
-    editor = nvim
+    editor = vim
     pager = less -FRX
     excludesfile = ~/.gitignore_global
     autocrlf = input
@@ -35,12 +31,6 @@
     ui = auto
 
 [alias]
-    s = status -sb
-    st = status -sb
-    sw = switch
-    co = switch
-    br = branch
-    ci = commit
     amend = commit --amend --no-edit
     lg = log --oneline --graph --decorate --all
     last = log -1 HEAD
@@ -54,3 +44,6 @@
 
 [url "git@bitbucket.org:"]
     insteadOf = https://bitbucket.org/
+
+[include]
+    path = ~/.gitconfig-local
