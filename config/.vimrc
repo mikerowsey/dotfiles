@@ -1,42 +1,106 @@
-" --- 1. DISPLAY & LINE NUMBERING ---
+"==============================================================================
+" General
+"==============================================================================
+
+set nocompatible
+syntax on
+filetype plugin indent on
+
+set hidden
+set autoread
+set mouse=a
+
+"==============================================================================
+" Appearance
+"==============================================================================
+
 set number
 set relativenumber
-set scrolloff=5
+set cursorline
+set scrolloff=8
+set sidescrolloff=8
+set laststatus=2
+set showcmd
+set ruler
+set showmatch
 
-" --- 2. INDENTATION & TABS ---
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set smartindent
-
-" --- 3. SEARCH CONFIGURATION ---
-set ignorecase
-set smartcase
-
-" Clear active search highlights instantly by hitting Escape
-nnoremap <Esc> :nohlsearch<CR>
-
-" --- 4. WINDOW MANAGEMENT SPLITS ---
-set splitbelow
-set splitright
-
-" --- 5. TRUECOLOR & THEME CONFIGURATION ---
 if has('termguicolors')
     set termguicolors
 endif
 
-" Safely load the clean habamax colorscheme
-colorscheme habamax
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 
-" --- 6. DUAL-OS CLIPBOARD INTEGRATION ---
+"==============================================================================
+" Search
+"==============================================================================
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+" Clear search highlight with Esc
+nnoremap <Esc> :noh<CR><Esc>
+
+"==============================================================================
+" Indentation
+"==============================================================================
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smartindent
+
+"==============================================================================
+" Splits
+"==============================================================================
+
+set splitbelow
+set splitright
+
+"==============================================================================
+" Completion
+"==============================================================================
+
+set wildmenu
+set wildmode=longest:full,full
+
+"==============================================================================
+" Clipboard
+"==============================================================================
+
 if has("mac") || has("macunix")
     set clipboard=unnamed
 else
-    " Linux best practice: Try unnamedplus first, fallback cleanly to unnamed
-    " This ensures clipboard compatibility whether using xclip, xsel, or wayland
     try
         set clipboard=unnamedplus,unnamed
     catch
-        " Safe fallback for headless Linux systems over bare SSH
     endtry
 endif
+
+"==============================================================================
+" Plugins
+"==============================================================================
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+    finish
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
+colorscheme gruvbox
+
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled=1
