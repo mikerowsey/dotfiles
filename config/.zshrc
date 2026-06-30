@@ -13,6 +13,8 @@ if [ -d "$(brew --prefix)/opt/fzf" ]; then
     bindkey '^G' fzf-cd-widget
 fi
 
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
+
 if command -v eza &> /dev/null; then
     alias ll="eza -lh --git --icons"
     alias la="eza -lah --git --icons"
