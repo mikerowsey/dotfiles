@@ -1,3 +1,11 @@
+# --- macOS Noise ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
 # --- Linux Noise ---
 *~
 .fuse_hidden*

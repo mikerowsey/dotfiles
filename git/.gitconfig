@@ -1,6 +1,6 @@
 [core]
-    editor = vim
-    pager = less -FRX
+    editor = nvim
+    pager = delta 
     excludesfile = ~/.gitignore_global
     autocrlf = input
     filemode = true
@@ -26,6 +26,7 @@
 
 [diff]
     colorMoved = default
+	tool = nvimdiff
 
 [color]
     ui = auto
@@ -47,3 +48,15 @@
 
 [include]
     path = ~/.gitconfig-local
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = Monokai Extended
+[difftool]
+	prompt = false
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
