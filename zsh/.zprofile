@@ -3,8 +3,10 @@ export VISUAL=$EDITOR
 
 if [ -x /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
-    export SDKROOT=$(xcrun --show-sdk-path)
+    export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
 
-export PATH="$HOME/.local/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export SDKROOT="$(xcrun --show-sdk-path)"
+export CC="clang"
+export CXX="clang++"
