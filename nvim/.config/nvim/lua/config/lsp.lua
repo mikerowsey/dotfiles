@@ -31,8 +31,55 @@ vim.lsp.config("clangd", {
     },
 })
 
+vim.lsp.config("rust_analyzer", {
+    settings = {
+        ["rust-analyzer"] = {
+            check = {
+                command = "clippy",
+            },
+        },
+    },
+})
+
+vim.lsp.config("gopls", {
+    settings = {
+        gopls = {
+            staticcheck = true,
+        },
+    },
+})
+
+vim.lsp.config("ts_ls", {
+    root_markers = {
+        "tsconfig.json",
+        "jsconfig.json",
+        "package.json",
+        ".git",
+    },
+})
+
+vim.lsp.config("html", {
+    filetypes = {
+        "html",
+        "templ",
+    },
+})
+
+vim.lsp.config("cssls", {
+    filetypes = {
+        "css",
+        "scss",
+        "less",
+    },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "basedpyright",
     "clangd",
+    "rust_analyzer",
+    "gopls",
+    "ts_ls",
+    "html",
+    "cssls",
 })

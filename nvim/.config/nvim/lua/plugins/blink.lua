@@ -1,24 +1,19 @@
 return {
     "saghen/blink.cmp",
-
     version = "1.*",
-
-    opts = {
+    opts = { 
         keymap = {
-            preset = "default",
+            preset = "enter",
         },
-
         appearance = {
             nerd_font_variant = "mono",
         },
-
         completion = {
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 300,
             },
         },
-
         sources = {
             default = {
                 "lsp",
@@ -26,7 +21,6 @@ return {
                 "buffer",
             },
         },
-
         fuzzy = {
             implementation = "prefer_rust_with_warning",
         },
