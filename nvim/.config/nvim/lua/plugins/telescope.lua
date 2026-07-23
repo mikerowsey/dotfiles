@@ -13,6 +13,21 @@ return {
                 prompt_position = "top",
             },
         },
+        pickers = {
+            buffers = {
+                sort_mru = true,
+                ignore_current_buffer = true,
+
+                mappings = {
+                    i = {
+                        ["<C-x>"] = require("telescope.actions").delete_buffer,
+                    },
+                    n = {
+                        ["dd"] = require("telescope.actions").delete_buffer,
+                    },
+                },
+            },
+        },
     },
 
     keys = {
