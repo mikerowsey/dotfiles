@@ -17,6 +17,8 @@ if command -v vivid >/dev/null 2>&1; then
     export LS_COLORS="$(vivid generate catppuccin-mocha)"
 fi
 
+eval "$(mise activate zsh)"
+
 # -----------------------------------------------------------------------------
 # Aliases
 # -----------------------------------------------------------------------------
