@@ -11,6 +11,8 @@ return {
         integrations = {
             telescope = true,
             which_key = true,
+            gitsigns = true,
+            trouble = true,
         },
     },
 

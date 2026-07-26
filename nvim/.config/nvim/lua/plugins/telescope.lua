@@ -20,10 +20,14 @@ return {
 
                 mappings = {
                     i = {
-                        ["<C-x>"] = require("telescope.actions").delete_buffer,
+                        ["<C-x>"] = function(pb)
+                            require("telescope.actions").delete_buffer(pb)
+                        end,
                     },
                     n = {
-                        ["dd"] = require("telescope.actions").delete_buffer,
+                        ["dd"] = function(pb)
+                            require("telescope.actions").delete_buffer(pb)
+                        end,
                     },
                 },
             },

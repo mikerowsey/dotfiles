@@ -15,8 +15,4 @@ map("n", "<leader>wj", "<C-w>j", { desc = "Window Down" })
 map("n", "<leader>wk", "<C-w>k", { desc = "Window Up" })
 map("n", "<leader>wl", "<C-w>l", { desc = "Window Right" })
 
--- LSP
-map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "Find References" })
-map("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename Symbol" })
+
