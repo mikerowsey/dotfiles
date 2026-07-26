@@ -26,6 +26,10 @@ return {
             markdown = { "prettier" },
 
             toml = { "taplo" },
+
+            rust = { "rustfmt" },
+
+            go = { "gofmt" },
         },
     },
 

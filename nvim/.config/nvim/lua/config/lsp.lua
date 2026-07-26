@@ -73,6 +73,41 @@ vim.lsp.config("cssls", {
     },
 })
 
+vim.lsp.config("tailwindcss", {
+    cmd = { "tailwindcss-language-server", "--stdio" },
+    filetypes = {
+        "html",
+        "css",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    },
+    root_markers = {
+        "tailwind.config.js",
+        "tailwind.config.ts",
+        "tailwind.config.mjs",
+        "tailwind.config.cjs",
+        "postcss.config.js",
+        "package.json",
+    },
+})
+
+vim.lsp.config("jsonls", {
+    cmd = { "vscode-json-language-server", "--stdio" },
+    filetypes = { "json", "jsonc" },
+    settings = {
+        json = {
+            validate = { enable = true },
+        },
+    },
+})
+
+vim.lsp.config("taplo", {
+    cmd = { "taplo", "lsp", "stdio" },
+    filetypes = { "toml" },
+})
+
 vim.lsp.enable({
     "lua_ls",
     "basedpyright",
@@ -82,4 +117,7 @@ vim.lsp.enable({
     "ts_ls",
     "html",
     "cssls",
+    "tailwindcss",
+    "jsonls",
+    "taplo",
 })
