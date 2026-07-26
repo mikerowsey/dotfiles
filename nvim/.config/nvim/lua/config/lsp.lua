@@ -1,9 +1,35 @@
 vim.lsp.config("lua_ls", {
+    cmd = { "lua-language-server" },
+    filetypes = { "lua" },
     settings = {
         Lua = {
             workspace = {
                 checkThirdParty = false,
                 library = vim.api.nvim_get_runtime_file("", true),
+            },
+        },
+    },
+})
+
+vim.lsp.config("basedpyright", {
+    cmd = { "basedpyright-langserver", "--stdio" },
+    filetypes = { "python" },
+    root_markers = {
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "pyrightconfig.json",
+        ".venv",
+        "venv",
+        ".git",
+    },
+    settings = {
+        basedpyright = {
+            analysis = {
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "openFilesOnly",
             },
         },
     },
@@ -32,6 +58,9 @@ vim.lsp.config("clangd", {
 })
 
 vim.lsp.config("rust_analyzer", {
+    cmd = { "rust-analyzer" },
+    filetypes = { "rust" },
+    root_markers = { "Cargo.toml", "Cargo.lock", ".git" },
     settings = {
         ["rust-analyzer"] = {
             check = {
@@ -42,6 +71,9 @@ vim.lsp.config("rust_analyzer", {
 })
 
 vim.lsp.config("gopls", {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    root_markers = { "go.mod", "go.work", ".git" },
     settings = {
         gopls = {
             staticcheck = true,
@@ -50,6 +82,13 @@ vim.lsp.config("gopls", {
 })
 
 vim.lsp.config("ts_ls", {
+    cmd = { "typescript-language-server", "--stdio" },
+    filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    },
     root_markers = {
         "tsconfig.json",
         "jsconfig.json",
@@ -59,6 +98,7 @@ vim.lsp.config("ts_ls", {
 })
 
 vim.lsp.config("html", {
+    cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = {
         "html",
         "templ",
@@ -66,6 +106,7 @@ vim.lsp.config("html", {
 })
 
 vim.lsp.config("cssls", {
+    cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = {
         "css",
         "scss",
@@ -120,4 +161,25 @@ vim.lsp.enable({
     "tailwindcss",
     "jsonls",
     "taplo",
+})
+
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "●",
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        },
+    },
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = true,
+    },
 })

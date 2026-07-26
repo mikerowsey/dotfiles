@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "gr", vim.lsp.buf.references, { buffer = buf, desc = "Find References" })
         map("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover Documentation" })
         map("n", "<leader>cr", vim.lsp.buf.rename, { buffer = buf, desc = "Rename Symbol" })
+        map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = buf, desc = "Code Action" })
     end,
 })
 
