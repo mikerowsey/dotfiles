@@ -1,8 +1,6 @@
 local map = vim.keymap.set
 
 -- General
-map("n", "<leader>s", "<cmd>w<CR>", { desc = "Write Buffer" })
-map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit Window" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear Search Highlight" })
 
 -- Window Navigation

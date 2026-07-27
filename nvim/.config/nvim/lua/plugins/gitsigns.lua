@@ -1,63 +1,65 @@
 return {
-    "lewis6991/gitsigns.nvim",
+	"lewis6991/gitsigns.nvim",
 
-    opts = {
-        signs = {
-            add          = { text = "+" },
-            change       = { text = "~" },
-            delete       = { text = "_" },
-            topdelete    = { text = "‾" },
-            changedelete = { text = "~" },
-        },
-    },
+	lazy = false,
 
-    keys = {
-        {
-            "]h",
-            function()
-                require("gitsigns").next_hunk()
-            end,
-            desc = "Next Hunk",
-        },
+	opts = {
+		signs = {
+			add = { text = "+" },
+			change = { text = "~" },
+			delete = { text = "x" },
+			topdelete = { text = "^" },
+			changedelete = { text = "±" },
+		},
+	},
 
-        {
-            "[h",
-            function()
-                require("gitsigns").prev_hunk()
-            end,
-            desc = "Previous Hunk",
-        },
+	keys = {
+		{
+			"]h",
+			function()
+				require("gitsigns").next_hunk()
+			end,
+			desc = "Next Hunk",
+		},
 
-        {
-            "<leader>gp",
-            function()
-                require("gitsigns").preview_hunk()
-            end,
-            desc = "Preview Hunk",
-        },
+		{
+			"[h",
+			function()
+				require("gitsigns").prev_hunk()
+			end,
+			desc = "Previous Hunk",
+		},
 
-        {
-            "<leader>gr",
-            function()
-                require("gitsigns").reset_hunk()
-            end,
-            desc = "Reset Hunk",
-        },
+		{
+			"<leader>gp",
+			function()
+				require("gitsigns").preview_hunk()
+			end,
+			desc = "Preview Hunk",
+		},
 
-        {
-            "<leader>gs",
-            function()
-                require("gitsigns").stage_hunk()
-            end,
-            desc = "Stage Hunk",
-        },
+		{
+			"<leader>gr",
+			function()
+				require("gitsigns").reset_hunk()
+			end,
+			desc = "Reset Hunk",
+		},
 
-        {
-            "<leader>gb",
-            function()
-                require("gitsigns").blame_line()
-            end,
-            desc = "Blame Line",
-        },
-    },
+		{
+			"<leader>gs",
+			function()
+				require("gitsigns").stage_hunk()
+			end,
+			desc = "Stage Hunk",
+		},
+
+		{
+			"<leader>gb",
+			function()
+				require("gitsigns").blame_line()
+			end,
+			desc = "Blame Line",
+		},
+	},
 }
