@@ -38,7 +38,9 @@ return {
         {
             "<leader>ff",
             function()
-                require("telescope.builtin").find_files()
+                require("telescope.builtin").find_files({
+                    find_command = { "fd", "--type", "f", "--follow" },
+                })
             end,
             desc = "Find Files",
         },
@@ -47,11 +49,10 @@ return {
             "<leader>fF",
             function()
                 require("telescope.builtin").find_files({
-                hidden = true,
-                no_ignore = true,
-            })
+                    find_command = { "fd", "--type", "f", "--hidden", "--follow" },
+                })
             end,
-            desc = "Find Files (All)",
+            desc = "Find Files (Hidden)",
         },
 
         {
