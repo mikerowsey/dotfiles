@@ -1,0 +1,53 @@
+# ~/.config/ghostty/config
+
+# ── Font ──────────────────────────────────────────────────────
+
+font-family = JetBrainsMono Nerd Font
+font-style = SemiBold
+font-size = 14
+
+font-thicken = false
+adjust-cell-height = 5%
+
+# ── Cursor ────────────────────────────────────────────────────
+
+cursor-style = block
+cursor-style-blink = false
+
+# ── Window ────────────────────────────────────────────────────
+
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+
+window-save-state = always
+confirm-close-surface = false
+
+# ── Appearance ────────────────────────────────────────────────
+
+theme = Catppuccin Mocha
+
+# ── macOS ─────────────────────────────────────────────────────
+
+macos-option-as-alt = true
+macos-titlebar-style = transparent
+
+# ── Shell Integration ─────────────────────────────────────────
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# ── Clipboard ─────────────────────────────────────────────────
+
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# ── Scrollback ────────────────────────────────────────────────
+
+scrollback-limit = 10000000
+
+# ── Mouse ─────────────────────────────────────────────────────
+
+mouse-hide-while-typing = true
+
